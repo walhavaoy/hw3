@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tmpclaw</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <header class="portal-header">
+    <div class="portal-header-logo">T</div>
+    <div class="portal-header-title">tmpclaw</div>
+    <button class="portal-nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+    <nav class="portal-nav" aria-label="Main navigation">
+      <a href="#">Agents</a>
+      <a href="#">Tasks</a>
+      <a href="#">Settings</a>
+    </nav>
+  </header>
+  <main class="portal-main">
+    <div class="portal-container">
+      <h1 class="portal-page-title">Dashboard</h1>
+      <div class="portal-grid">
+        <div class="portal-card">
+          <div class="portal-card-title">Agent Runner</div>
+          <div class="portal-card-meta">3 active instances</div>
+          <div class="portal-card-actions">
+            <span class="portal-card-status">Running</span>
+          </div>
+        </div>
+        <div class="portal-card">
+          <div class="portal-card-title">Build Pipeline</div>
+          <div class="portal-card-meta">Last build: 2 min ago</div>
+          <div class="portal-card-actions">
+            <span class="portal-card-status portal-card-status--success">Healthy</span>
+          </div>
+        </div>
+        <div class="portal-card">
+          <div class="portal-card-title">Task Queue</div>
+          <div class="portal-card-meta">12 pending tasks</div>
+          <div class="portal-card-actions">
+            <span class="portal-card-status portal-card-status--warning">Busy</span>
+          </div>
+        </div>
+        <div class="portal-card">
+          <div class="portal-card-title">NATS Bridge</div>
+          <div class="portal-card-meta">Connected to cluster</div>
+          <div class="portal-card-actions">
+            <span class="portal-card-status portal-card-status--success">Online</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="portal-footer">tmpclaw platform</footer>
+  <script>
+    (function () {
+      var toggle = document.querySelector('.portal-nav-toggle');
+      var nav = document.querySelector('.portal-nav');
+      if (toggle && nav) {
+        toggle.addEventListener('click', function () {
+          var expanded = nav.classList.toggle('visible');
+          toggle.setAttribute('aria-expanded', String(expanded));
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

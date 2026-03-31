@@ -1,0 +1,205 @@
+/* tmpclaw portal — mobile-first responsive shell */
+
+:root {
+  --surface: #1a1a2e;
+  --surface2: #16213e;
+  --border: #2a2a4a;
+  --text: #e5e7eb;
+  --text-dim: #9ca3af;
+  --accent: #6366f1;
+  --success: #22c55e;
+  --warning: #eab308;
+  --text-on-accent: #fff;
+}
+
+/* Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Body — fluid column layout */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--surface);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Focus styles */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Header */
+.portal-header {
+  background: var(--surface2);
+  border-bottom: 1px solid var(--border);
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.portal-header-logo {
+  width: 2rem;
+  height: 2rem;
+  background: var(--accent);
+  border-radius: 0.375rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-on-accent);
+  font-weight: 700;
+  font-size: 0.875rem;
+  flex-shrink: 0;
+}
+
+.portal-header-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* Nav — hidden on mobile by default */
+.portal-nav {
+  margin-left: auto;
+  display: none;
+  gap: 1rem;
+}
+
+.portal-nav.visible {
+  display: flex;
+}
+
+.portal-nav a {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 0.875rem;
+}
+
+.portal-nav a:hover {
+  color: var(--accent);
+}
+
+/* Nav toggle — visible on mobile only */
+.portal-nav-toggle {
+  display: block;
+  margin-left: auto;
+  background: none;
+  border: none;
+  color: var(--text);
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+/* Container */
+.portal-container {
+  width: 100%;
+  max-width: 75rem;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Main content area */
+.portal-main {
+  flex: 1;
+  padding: 1rem;
+}
+
+/* Page title — fluid sizing */
+.portal-page-title {
+  font-size: clamp(1.25rem, 2vw + 0.5rem, 2rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+/* Responsive grid — single column on mobile */
+.portal-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+/* Cards */
+.portal-card {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  transition: border-color 0.15s;
+  min-width: 0;
+}
+
+.portal-card:hover {
+  border-color: var(--accent);
+}
+
+.portal-card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.portal-card-meta {
+  color: var(--text-dim);
+  font-size: 0.8rem;
+}
+
+.portal-card-actions {
+  margin-top: 0.75rem;
+}
+
+/* Status badges */
+.portal-card-status {
+  display: inline-block;
+  padding: 0.125rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  background: var(--accent);
+  color: var(--text-on-accent);
+}
+
+.portal-card-status--success {
+  background: var(--success);
+}
+
+.portal-card-status--warning {
+  background: var(--warning);
+  color: var(--surface);
+}
+
+/* Footer */
+.portal-footer {
+  border-top: 1px solid var(--border);
+  padding: 0.75rem 1rem;
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 0.8rem;
+}
+
+/* Desktop breakpoint */
+@media (min-width: 48rem) {
+  .portal-nav {
+    display: flex;
+  }
+
+  .portal-nav-toggle {
+    display: none;
+  }
+
+  .portal-grid {
+    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  }
+}
