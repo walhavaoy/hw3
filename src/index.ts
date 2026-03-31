@@ -1,5 +1,6 @@
 import express from 'express';
 import pino from 'pino';
+import greetingRouter from './routes/greeting.js';
 
 const logger = pino({ name: 'hw3' });
 const app = express();
@@ -26,6 +27,8 @@ app.get('/', (_req, res) => {
 </body>
 </html>`);
 });
+
+app.use('/api/greeting', greetingRouter);
 
 app.listen(PORT, () => {
   logger.info({ port: PORT }, 'Server listening');
