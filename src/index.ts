@@ -16,12 +16,13 @@ app.get('/', (_req, res) => {
   <title>Hello World</title>
 </head>
 <body>
-  <h1>Hello World</h1>
-  <p>Server time: ${serverTime}</p>
-  <button id="greet-btn">Greet</button>
+  <h1 data-testid="heading">Hello World</h1>
+  <p data-testid="time-display">Server time: ${serverTime}</p>
+  <button id="greet-btn" data-testid="greet-btn">Greet</button>
+  <p id="greeting-result" data-testid="greeting-result"></p>
   <script>
     document.getElementById('greet-btn').addEventListener('click', function() {
-      alert('Hello! Welcome to hw3!');
+      document.getElementById('greeting-result').textContent = 'Hello! Welcome to hw3!';
     });
   </script>
 </body>
